@@ -1,6 +1,6 @@
 //import axios from 'axios';
 
-function performGetRequest1() {
+export function performGetRequest1() {
   var resultElement = document.getElementById('getResult1');
   resultElement.innerHTML = '';
   
