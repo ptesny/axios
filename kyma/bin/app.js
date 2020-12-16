@@ -15,3 +15,29 @@ const getTodos = async () => {
     console.error(e);
   }
 };
+
+const createLi = item => {
+  const li = document.createElement('li');
+
+  li.appendChild(document.createTextNode(item.title));
+
+  return li;
+};
+
+const addTodosToDOM = todos => {
+  const ul = document.querySelector('ul');
+
+  if (Array.isArray(todos) && todos.length > 0) {
+    todos.map(todo => {
+      ul.appendChild(createLi(todo));
+    });
+  } else if (todos) {
+    ul.appendChild(createLi(todos));
+  }
+};
+
+const main = async () => {
+  addTodosToDOM(await getTodos());
+};
+
+main();
